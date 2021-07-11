@@ -1,62 +1,18 @@
-# ts-boilerplate
+# kata Mars rover
 
-This is a template repository. So just use the template and once you have your repository cloned on your pc just run `npm install` for installing all the dependencies.
+## Your Task
+You’re part of the team that explores Mars by sending remotely controlled vehicles to the surface of the planet. Develop an API that translates the commands sent from earth to instructions that are understood by the rover.
 
-## Scripts
+## Requirements
+- You are given the initial starting point (x,y) of a rover and the direction (N,S,E,W) it is facing.
+- The rover receives a character array of commands.
+- Implement commands that move the rover forward/backward (f,b).
+- Implement commands that turn the rover left/right (l,r).
+- Implement wrapping at edges. But be careful, planets are spheres. Connect the x edge to the other x edge, so (1,1) for x-1 to (5,1), but connect vertical edges towards themselves in inverted coordinates, so (1,1) for y-1 connects to (5,1).
+- Implement obstacle detection before each move to a new square. If a given sequence of commands encounters an obstacle, the rover moves up to the last possible point, aborts the sequence and reports the obstacle.
 
-```json
-"prepare": "npm run build",
-"prestart": "npm run build",
-"start": "node build/index.js",
-"dev": "npm run build -- --watch & nodemon build/index.js",
-"build": "npm run lint && npm test && tsc",
-"lint": "eslint . --ext .ts",
-"lint:fix": "npm run lint -- --fix",
-"test": "jest --verbose",
-"test:watch": "npm t -- --watchAll",
-"test:coverage": "npm t -- --coverage"
-```
-
-## Test config
-
-```json
-{
-  "roots": [
-    "<rootDir>/src"
-  ],
-  "testMatch": [
-    "**/__tests__/**/*.+(ts|js)", 
-    "**/?(*.)+(spec|test).+(ts|js)"
-  ],
-  "transform": {
-    "^.+\\.(ts)?$": "ts-jest"
-  }
-}
-```
-
-## Linter config
-
-```json
-{
-    "env": {
-        "es2021": true,
-        "node": true,
-        "jest": true
-    },
-    "extends": [
-        "standard"
-    ],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-        "ecmaVersion": 12,
-        "sourceType": "module"
-    },
-    "plugins": [
-        "@typescript-eslint"
-    ],
-    "rules": {
-        "no-unused-vars": "off",
-        "@typescript-eslint/no-unused-vars": ["error"]
-    }
-}
-```
+## Rules
+- Hardcore TDD. No Excuses!
+- Change roles (driver, navigator) after each TDD cycle.
+- No red phases while refactoring.
+- Be careful about edge cases and exceptions. We can not afford to lose a mars rover, just because the developers overlooked a null pointer.
